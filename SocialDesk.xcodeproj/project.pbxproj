@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D3F3246200F314600785BA6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F3245200F314600785BA6 /* AuthService.swift */; };
+		7D588B37200F28AA0014EB5C /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D588B36200F28AA0014EB5C /* AuthVC.swift */; };
+		7D588B39200F28BB0014EB5C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D588B38200F28BB0014EB5C /* LoginVC.swift */; };
+		7D588B3B200F29B70014EB5C /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D588B3A200F29B70014EB5C /* InsetTextField.swift */; };
 		7D76B76920088BE100A76292 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B76820088BE100A76292 /* DataService.swift */; };
 		7DB652B920076B4C000A9050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB652B820076B4C000A9050 /* AppDelegate.swift */; };
 		7DB652BB20076B4C000A9050 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB652BA20076B4C000A9050 /* FirstViewController.swift */; };
@@ -20,6 +24,10 @@
 
 /* Begin PBXFileReference section */
 		41DE87E2093DA51BE15C25F6 /* Pods-SocialDesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialDesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialDesk/Pods-SocialDesk.debug.xcconfig"; sourceTree = "<group>"; };
+		7D3F3245200F314600785BA6 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		7D588B36200F28AA0014EB5C /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		7D588B38200F28BB0014EB5C /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		7D588B3A200F29B70014EB5C /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		7D76B76820088BE100A76292 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7DB652B520076B4C000A9050 /* SocialDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB652B820076B4C000A9050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +112,8 @@
 			children = (
 				7DB652BA20076B4C000A9050 /* FirstViewController.swift */,
 				7DB652BC20076B4C000A9050 /* SecondViewController.swift */,
+				7D588B36200F28AA0014EB5C /* AuthVC.swift */,
+				7D588B38200F28BB0014EB5C /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -111,6 +121,7 @@
 		7DB652CD20076BFF000A9050 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7D588B3A200F29B70014EB5C /* InsetTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				7D76B76820088BE100A76292 /* DataService.swift */,
+				7D3F3245200F314600785BA6 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -273,10 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D588B37200F28AA0014EB5C /* AuthVC.swift in Sources */,
 				7DB652BD20076B4C000A9050 /* SecondViewController.swift in Sources */,
+				7D588B39200F28BB0014EB5C /* LoginVC.swift in Sources */,
 				7DB652B920076B4C000A9050 /* AppDelegate.swift in Sources */,
 				7DB652BB20076B4C000A9050 /* FirstViewController.swift in Sources */,
+				7D588B3B200F29B70014EB5C /* InsetTextField.swift in Sources */,
 				7D76B76920088BE100A76292 /* DataService.swift in Sources */,
+				7D3F3246200F314600785BA6 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
