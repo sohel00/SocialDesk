@@ -15,7 +15,7 @@ class InsetTextField: UITextField {
         super.awakeFromNib()
     }
 
-    private var padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+    private var padding = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, padding)
