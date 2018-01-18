@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLd-VD-LLd">
-                                        <rect key="frame" x="325" y="34" width="30" height="30"/>
+                                        <rect key="frame" x="325" y="38" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="7MS-KO-AAO"/>
                                             <constraint firstAttribute="width" constant="30" id="Y8t-Kz-Ibk"/>
@@ -37,7 +37,7 @@
                                         <state key="normal" image="compose"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTN-ps-0V0">
-                                        <rect key="frame" x="160.33333333333334" y="41.666666666666664" width="54.333333333333343" height="21"/>
+                                        <rect key="frame" x="160.33333333333334" y="44.666666666666664" width="54.333333333333343" height="20.999999999999993"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -46,9 +46,9 @@
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="FLd-VD-LLd" secondAttribute="trailing" constant="20" id="0ie-vl-Ouw"/>
-                                    <constraint firstItem="FLd-VD-LLd" firstAttribute="centerY" secondItem="rTN-ps-0V0" secondAttribute="centerY" constant="-4" id="9pO-BS-o7b"/>
+                                    <constraint firstItem="FLd-VD-LLd" firstAttribute="centerY" secondItem="rTN-ps-0V0" secondAttribute="centerY" constant="-2" id="9pO-BS-o7b"/>
                                     <constraint firstAttribute="height" constant="78" id="HY4-0D-84D"/>
-                                    <constraint firstItem="FLd-VD-LLd" firstAttribute="top" secondItem="lyj-0O-GFW" secondAttribute="top" constant="34" id="ZHn-qs-rUl"/>
+                                    <constraint firstItem="FLd-VD-LLd" firstAttribute="top" secondItem="lyj-0O-GFW" secondAttribute="top" constant="38" id="ZHn-qs-rUl"/>
                                     <constraint firstItem="rTN-ps-0V0" firstAttribute="centerX" secondItem="lyj-0O-GFW" secondAttribute="centerX" id="fVn-jV-joS"/>
                                 </constraints>
                             </view>
@@ -98,7 +98,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubf-y7-LvE">
-                                        <rect key="frame" x="325" y="34" width="30" height="30"/>
+                                        <rect key="frame" x="325" y="38" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IRw-et-4Ds"/>
                                             <constraint firstAttribute="width" constant="30" id="RwD-GY-MXF"/>
@@ -106,7 +106,7 @@
                                         <state key="normal" image="addNewIcon"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuJ-2a-eeM">
-                                        <rect key="frame" x="150.33333333333334" y="41.666666666666664" width="76" height="21"/>
+                                        <rect key="frame" x="150.33333333333334" y="44.666666666666664" width="76" height="20.999999999999993"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -115,9 +115,9 @@
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="nuJ-2a-eeM" firstAttribute="centerX" secondItem="5oy-DH-gXz" secondAttribute="centerX" id="W1C-s9-htO"/>
-                                    <constraint firstItem="Ubf-y7-LvE" firstAttribute="centerY" secondItem="nuJ-2a-eeM" secondAttribute="centerY" constant="-4" id="bFh-ce-Yt6"/>
+                                    <constraint firstItem="Ubf-y7-LvE" firstAttribute="centerY" secondItem="nuJ-2a-eeM" secondAttribute="centerY" constant="-2" id="bFh-ce-Yt6"/>
                                     <constraint firstAttribute="trailing" secondItem="Ubf-y7-LvE" secondAttribute="trailing" constant="20" id="gU1-os-RCs"/>
-                                    <constraint firstItem="Ubf-y7-LvE" firstAttribute="top" secondItem="5oy-DH-gXz" secondAttribute="top" constant="34" id="kaN-Bh-tOu"/>
+                                    <constraint firstItem="Ubf-y7-LvE" firstAttribute="top" secondItem="5oy-DH-gXz" secondAttribute="top" constant="38" id="kaN-Bh-tOu"/>
                                     <constraint firstAttribute="height" constant="78" id="zuE-Ee-Xq5"/>
                                 </constraints>
                             </view>
