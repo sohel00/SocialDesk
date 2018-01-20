@@ -13,6 +13,7 @@
 		7D588B3B200F29B70014EB5C /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D588B3A200F29B70014EB5C /* InsetTextField.swift */; };
 		7D75F5E52010AE04007EFF9E /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F5E42010AE04007EFF9E /* MeVC.swift */; };
 		7D76B76920088BE100A76292 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B76820088BE100A76292 /* DataService.swift */; };
+		7D811B352013223F001B48A7 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D811B342013223F001B48A7 /* CreatePostVC.swift */; };
 		7DB652B920076B4C000A9050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB652B820076B4C000A9050 /* AppDelegate.swift */; };
 		7DB652BB20076B4C000A9050 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB652BA20076B4C000A9050 /* FeedVC.swift */; };
 		7DB652BD20076B4C000A9050 /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB652BC20076B4C000A9050 /* GroupsVC.swift */; };
@@ -31,6 +32,7 @@
 		7D588B3A200F29B70014EB5C /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		7D75F5E42010AE04007EFF9E /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		7D76B76820088BE100A76292 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		7D811B342013223F001B48A7 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		7DB652B520076B4C000A9050 /* SocialDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB652B820076B4C000A9050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB652BA20076B4C000A9050 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				7D588B36200F28AA0014EB5C /* AuthVC.swift */,
 				7D588B38200F28BB0014EB5C /* LoginVC.swift */,
 				7D75F5E42010AE04007EFF9E /* MeVC.swift */,
+				7D811B342013223F001B48A7 /* CreatePostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D811B352013223F001B48A7 /* CreatePostVC.swift in Sources */,
 				7D588B37200F28AA0014EB5C /* AuthVC.swift in Sources */,
 				7DB652BD20076B4C000A9050 /* GroupsVC.swift in Sources */,
 				7D588B39200F28BB0014EB5C /* LoginVC.swift in Sources */,
