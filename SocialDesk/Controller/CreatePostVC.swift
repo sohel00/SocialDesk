@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SQLite3
 
 class CreatePostVC: UIViewController {
 
@@ -22,9 +23,10 @@ class CreatePostVC: UIViewController {
         sendBtn.bindToKeyboard()
     }
 
+    
 
     @IBAction func sendBtnPressed(_ sender: Any) {
-        if textView.text != nil && textView.text != "Say something here..." {
+        if textView.text != "" && textView.text != "Say something here..." {
             sendBtn.isEnabled = false
             DataService.instance.uploadPost(withMessage: textView.text, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: nil, completion: { (success) in
                 if success {

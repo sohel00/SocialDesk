@@ -3,7 +3,7 @@
 //  SocialDesk
 //
 //  Created by Sohel Dhengre on 12/01/18.
-//  Copyright © 2018 Sohel Dengre. All rights reserved.
+//  Copyright © 2018 Sohel Dhengre. All rights reserved.
 //
 
 import Foundation
@@ -47,4 +47,30 @@ class DataService{
             completion(true)
         }
     }
+    
+    func getAllMessages(message: @escaping (_ message:[Message])->()){
+        var messageArray = [Message]()
+        REF_FEED.observeSingleEvent(of: .value) { (feedMessageSnapshot) in
+            guard let feedMessageSnapshot = feedMessageSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            
+            for message in feedMessageSnapshot {
+                let content = message.childSnapshot(forPath: "content").value as! String
+                let senderID = message.childSnapshot(forPath: "senderID").value as! String
+                let message = Message(content: content, senderID: senderID)
+                messageArray.append(message)
+                
+            }
+            message(messageArray)
+            
+        }
+    }
 }
+
+
+
+
+
+
+
+
+

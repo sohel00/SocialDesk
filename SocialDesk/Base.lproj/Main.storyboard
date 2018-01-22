@@ -61,7 +61,7 @@
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.27058823529411763" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="bQ4-OW-wcv" customClass="FeedCell" customModule="SocialDesk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="100" id="bQ4-OW-wcv" customClass="FeedCell" customModule="SocialDesk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bQ4-OW-wcv" id="mmS-eg-1U0">
@@ -128,6 +128,9 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="feed-tabIcon" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="tableView" destination="xQ7-e2-eXz" id="bcU-go-xF9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,20 +182,20 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@socialDesk.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJG-1R-1RA">
-                                <rect key="frame" x="110" y="123.33333333333331" width="245" height="21"/>
+                                <rect key="frame" x="105" y="123.33333333333331" width="250" height="21"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                 <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say something here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k3j-fl-SMv">
-                                <rect key="frame" x="20" y="200" width="335" height="513"/>
+                                <rect key="frame" x="20" y="200" width="335" height="527"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt9-cB-tiR">
-                                <rect key="frame" x="0.0" y="743" width="375" height="35"/>
+                                <rect key="frame" x="0.0" y="757" width="375" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gSm-gh-Meo"/>
@@ -211,13 +214,13 @@
                             <constraint firstItem="VXM-wq-ftd" firstAttribute="leading" secondItem="rME-Tx-gl1" secondAttribute="leading" id="0Ew-cz-Jol"/>
                             <constraint firstItem="VXM-wq-ftd" firstAttribute="top" secondItem="s9s-Oh-I6k" secondAttribute="top" id="290-if-Ti5"/>
                             <constraint firstItem="lt9-cB-tiR" firstAttribute="centerX" secondItem="s9s-Oh-I6k" secondAttribute="centerX" id="8VG-tc-Ypr"/>
-                            <constraint firstItem="kJG-1R-1RA" firstAttribute="leading" secondItem="Aet-vb-ES8" secondAttribute="trailing" constant="20" id="GOO-br-War"/>
+                            <constraint firstItem="kJG-1R-1RA" firstAttribute="leading" secondItem="Aet-vb-ES8" secondAttribute="trailing" constant="15" id="GOO-br-War"/>
                             <constraint firstItem="lt9-cB-tiR" firstAttribute="leading" secondItem="rME-Tx-gl1" secondAttribute="leading" id="HRr-2g-1PY"/>
-                            <constraint firstItem="rME-Tx-gl1" firstAttribute="bottom" secondItem="lt9-cB-tiR" secondAttribute="bottom" id="IEh-zO-DVM"/>
                             <constraint firstItem="rME-Tx-gl1" firstAttribute="trailing" secondItem="lt9-cB-tiR" secondAttribute="trailing" id="KAB-GW-bgs"/>
                             <constraint firstItem="kJG-1R-1RA" firstAttribute="centerY" secondItem="Aet-vb-ES8" secondAttribute="centerY" id="Kw3-zr-AOi"/>
                             <constraint firstItem="Aet-vb-ES8" firstAttribute="top" secondItem="VXM-wq-ftd" secondAttribute="bottom" constant="20" id="Ngn-43-cVk"/>
                             <constraint firstItem="lt9-cB-tiR" firstAttribute="top" secondItem="k3j-fl-SMv" secondAttribute="bottom" constant="30" id="UIm-fF-cHC"/>
+                            <constraint firstAttribute="bottom" secondItem="lt9-cB-tiR" secondAttribute="bottom" constant="20" id="Wk4-YC-tMo"/>
                             <constraint firstItem="k3j-fl-SMv" firstAttribute="leading" secondItem="rME-Tx-gl1" secondAttribute="leading" constant="20" id="elx-3U-Fzu"/>
                             <constraint firstItem="VXM-wq-ftd" firstAttribute="trailing" secondItem="rME-Tx-gl1" secondAttribute="trailing" id="nIF-Rx-SNI"/>
                             <constraint firstItem="rME-Tx-gl1" firstAttribute="trailing" secondItem="kJG-1R-1RA" secondAttribute="trailing" constant="20" id="ojz-Pd-XJF"/>
@@ -518,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryw-q7-9xs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1590" y="9"/>
+            <point key="canvasLocation" x="-1598" y="0.0"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="6ot-pE-Q78">
@@ -595,7 +598,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dx4-J3-SX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-914.39999999999998" y="8.8669950738916263"/>
+            <point key="canvasLocation" x="-812" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
