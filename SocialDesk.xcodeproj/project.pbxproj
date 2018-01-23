@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D3F3246200F314600785BA6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3F3245200F314600785BA6 /* AuthService.swift */; };
 		7D4FEB6220171A33005F3528 /* CreateGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FEB6120171A33005F3528 /* CreateGroupsVC.swift */; };
+		7D4FEB6420172730005F3528 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FEB6320172730005F3528 /* UserCell.swift */; };
 		7D588B37200F28AA0014EB5C /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D588B36200F28AA0014EB5C /* AuthVC.swift */; };
 		7D588B39200F28BB0014EB5C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D588B38200F28BB0014EB5C /* LoginVC.swift */; };
 		7D588B3B200F29B70014EB5C /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D588B3A200F29B70014EB5C /* InsetTextField.swift */; };
@@ -32,6 +33,7 @@
 		41DE87E2093DA51BE15C25F6 /* Pods-SocialDesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialDesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialDesk/Pods-SocialDesk.debug.xcconfig"; sourceTree = "<group>"; };
 		7D3F3245200F314600785BA6 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7D4FEB6120171A33005F3528 /* CreateGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsVC.swift; sourceTree = "<group>"; };
+		7D4FEB6320172730005F3528 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7D588B36200F28AA0014EB5C /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		7D588B38200F28BB0014EB5C /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		7D588B3A200F29B70014EB5C /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				7D588B3A200F29B70014EB5C /* InsetTextField.swift */,
 				7D811B382013460E001B48A7 /* FeedCell.swift */,
+				7D4FEB6320172730005F3528 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				7DB652B920076B4C000A9050 /* AppDelegate.swift in Sources */,
 				7D811B392013460E001B48A7 /* FeedCell.swift in Sources */,
 				7D811B3720133848001B48A7 /* UIViewExt.swift in Sources */,
+				7D4FEB6420172730005F3528 /* UserCell.swift in Sources */,
 				7D75F5E52010AE04007EFF9E /* MeVC.swift in Sources */,
 				7DB652BB20076B4C000A9050 /* FeedVC.swift in Sources */,
 				7D79C5372015C12800EDD7B8 /* Message.swift in Sources */,
