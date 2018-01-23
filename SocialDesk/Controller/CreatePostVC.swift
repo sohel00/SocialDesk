@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SQLite3
 
 class CreatePostVC: UIViewController {
 
@@ -23,7 +22,9 @@ class CreatePostVC: UIViewController {
         sendBtn.bindToKeyboard()
     }
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.userEmailLbl.text = Auth.auth().currentUser?.email
+    }
 
     @IBAction func sendBtnPressed(_ sender: Any) {
         if textView.text != "" && textView.text != "Say something here..." {

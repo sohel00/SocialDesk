@@ -22,7 +22,7 @@ class FeedVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         DataService.instance.getAllMessages { (returnedMessages) in
-            self.Messages = returnedMessages
+            self.Messages = returnedMessages.reversed()
             self.tableView.reloadData()
         }
     }
@@ -50,7 +50,10 @@ class FeedVC: UIViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? FeedCell else {return UITableViewCell()}
             let image = UIImage(named: "defaultProfileImage")
             let message = Messages[indexPath.row]
-            cell.configureCell(image: image!, email: message.senderID, message: message.content)
+            DataService.instance.getUserName(forUID: message.senderID) { (returnedUsername) in
+                cell.configureCell(image: image!, email: returnedUsername , message: message.content)
+            }
+            
             return cell
         }
      }

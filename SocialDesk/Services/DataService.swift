@@ -48,6 +48,17 @@ class DataService{
         }
     }
     
+    func getUserName(forUID uid:String, handler: @escaping (_ username:String)->()){
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            for user in userSnapshot {
+                if user.key == uid{
+                    handler(user.childSnapshot(forPath: "email").value as! String)
+                }
+            }
+        }
+    }
+    
     func getAllMessages(message: @escaping (_ message:[Message])->()){
         var messageArray = [Message]()
         REF_FEED.observeSingleEvent(of: .value) { (feedMessageSnapshot) in
