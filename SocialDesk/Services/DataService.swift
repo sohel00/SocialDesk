@@ -89,6 +89,26 @@ class DataService{
             handler(emailArray)
         }
     }
+    
+    func getIds(forUsername username: [String], handler: @escaping (_ uidArray: [String])->()){
+        var uidArray = [String]()
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            for user in userSnapshot{
+               let email = user.childSnapshot(forPath: "email").value as! String
+                if username.contains(email) {
+                    uidArray.append(user.key)
+                }
+            }
+            handler(uidArray)
+        }
+        
+    }
+    
+    func createGroup(forTitle title: String, withDescription description: String,forUserIds uids: [String], handler:(_ status:Bool)->()){
+        REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": uids])
+        handler(true)
+    }
 }
 
 

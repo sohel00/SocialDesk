@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupsVC: UIViewController {
 
@@ -43,6 +44,18 @@ class CreateGroupsVC: UIViewController {
     }
 
     @IBAction func doneBtnPressed(_ sender: Any) {
+        if titleTextField.text != "" && descTextField.text != "" {
+            DataService.instance.getIds(forUsername: chosenUserArray, handler: { (returndedUids) in
+                var uids = returndedUids
+                uids.append((Auth.auth().currentUser?.uid)!)
+                
+                DataService.instance.createGroup(forTitle: self.titleTextField.text!, withDescription: self.descTextField.text!, forUserIds: uids, handler: { (groupCreated) in
+                    if groupCreated {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                })
+            })
+        }
     }
     
    
