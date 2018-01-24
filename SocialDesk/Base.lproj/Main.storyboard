@@ -509,7 +509,7 @@
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add people to your group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8P-cU-v7k">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add people to your group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="e8P-cU-v7k">
                                         <rect key="frame" x="0.0" y="127.33333333333336" width="335" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -594,6 +594,7 @@
                     </view>
                     <connections>
                         <outlet property="descTextField" destination="L8a-hB-dxp" id="Bar-C8-AlZ"/>
+                        <outlet property="doneBtn" destination="1ha-QB-3eV" id="oMO-AR-YH0"/>
                         <outlet property="emailSearchTextField" destination="HBg-i7-zrE" id="O9B-nH-Ed2"/>
                         <outlet property="groupMemberLbl" destination="e8P-cU-v7k" id="2Bd-aT-xxk"/>
                         <outlet property="tableView" destination="yb9-OX-HBo" id="yG0-un-t3o"/>
