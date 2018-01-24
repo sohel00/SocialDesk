@@ -16,7 +16,7 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var checkImg: UIImageView!
     
     func configureCell(forImage image:UIImage, withEmail email:String, isSelected:Bool){
-        self.profileImg.image = UIImage(named: "defaultProfileImage")
+        self.profileImg.image = image
         self.emailLbl.text = email
         if isSelected {
             checkImg.isHidden = false
