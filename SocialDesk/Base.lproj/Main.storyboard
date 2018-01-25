@@ -397,13 +397,51 @@
                                 <color key="backgroundColor" red="0.25490196079999999" green="0.27058823529999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="zcZ-dV-jMG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="100" id="zcZ-dV-jMG" customClass="GroupCell" customModule="SocialDesk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zcZ-dV-jMG" id="JtG-tx-zSt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Group Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcB-Mj-dNT">
+                                                    <rect key="frame" x="19" y="16" width="333" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                                    <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Group Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZc-5Y-B7M">
+                                                    <rect key="frame" x="25" y="41" width="327" height="17.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                                                    <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ull-31-xb9">
+                                                    <rect key="frame" x="30" y="62.666666666666664" width="322" height="22.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                                                    <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ull-31-xb9" firstAttribute="top" secondItem="FZc-5Y-B7M" secondAttribute="bottom" constant="4" id="2RN-Fi-d4I"/>
+                                                <constraint firstItem="DcB-Mj-dNT" firstAttribute="top" secondItem="JtG-tx-zSt" secondAttribute="topMargin" constant="5" id="4Zj-xN-ouF"/>
+                                                <constraint firstItem="FZc-5Y-B7M" firstAttribute="leading" secondItem="JtG-tx-zSt" secondAttribute="leadingMargin" constant="10" id="9De-2j-KS9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ull-31-xb9" secondAttribute="bottom" constant="4" id="BY9-gV-W9W"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FZc-5Y-B7M" secondAttribute="trailing" constant="8" id="CdM-fi-amn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DcB-Mj-dNT" secondAttribute="trailing" constant="8" id="ELg-MM-0pM"/>
+                                                <constraint firstItem="Ull-31-xb9" firstAttribute="leading" secondItem="JtG-tx-zSt" secondAttribute="leadingMargin" constant="15" id="Lqa-rV-11n"/>
+                                                <constraint firstItem="FZc-5Y-B7M" firstAttribute="top" secondItem="DcB-Mj-dNT" secondAttribute="bottom" constant="4" id="Rbq-12-pJH"/>
+                                                <constraint firstItem="DcB-Mj-dNT" firstAttribute="leading" secondItem="JtG-tx-zSt" secondAttribute="leadingMargin" constant="4" id="d0R-WD-XSv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ull-31-xb9" secondAttribute="trailing" constant="8" id="zeB-y0-ExR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="groupDescLbl" destination="FZc-5Y-B7M" id="Suh-1a-UDA"/>
+                                            <outlet property="groupMembersLbl" destination="Ull-31-xb9" id="kEQ-WZ-vHH"/>
+                                            <outlet property="groupTitleLbl" destination="DcB-Mj-dNT" id="uMA-PV-lNc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -421,10 +459,13 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Groups" image="groups-tabIcon" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="groupsTableView" destination="qrv-hm-6VH" id="PpL-pu-pnX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.85221674876851"/>
         </scene>
         <!--Create GroupsVC-->
         <scene sceneID="ahf-Tr-xdD">
@@ -476,17 +517,17 @@
                                     <constraint firstItem="1ha-QB-3eV" firstAttribute="top" secondItem="VVq-w4-DZZ" secondAttribute="top" constant="38" id="vBM-KQ-1nC"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yI6-Cn-qbe">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yI6-Cn-qbe">
                                 <rect key="frame" x="20" y="98" width="335" height="660"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dja-qF-DfG">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="11.666666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Add group title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6R1-AI-lql" customClass="InsetTextField" customModule="SocialDesk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="17.666666666666671" width="335" height="40"/>
+                                        <rect key="frame" x="0.0" y="8" width="335" height="40"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="awc-mR-Hmm"/>
@@ -496,13 +537,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsx-pp-g25">
-                                        <rect key="frame" x="0.0" y="63.66666666666665" width="335" height="11.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="56" width="335" height="11.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Add group description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8a-hB-dxp" customClass="InsetTextField" customModule="SocialDesk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="81.333333333333343" width="335" height="40"/>
+                                        <rect key="frame" x="0.0" y="75.333333333333343" width="335" height="40"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6pR-bd-R5l"/>
@@ -512,13 +553,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add people to your group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="e8P-cU-v7k">
-                                        <rect key="frame" x="0.0" y="127.33333333333336" width="335" height="18.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="123.33333333333336" width="335" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Add an email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBg-i7-zrE" customClass="InsetTextField" customModule="SocialDesk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="152" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="150" width="335" height="60"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="hnr-bF-oqk"/>
