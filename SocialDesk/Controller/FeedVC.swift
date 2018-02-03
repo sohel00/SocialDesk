@@ -20,10 +20,12 @@ class FeedVC: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        DataService.instance.getAllMessages { (returnedMessages) in
-            self.Messages = returnedMessages.reversed()
-            self.tableView.reloadData()
+    override func viewWillAppear(_ animated: Bool) {
+        DataService.instance.REF_FEED.observe(.value) { (snapShot) in
+            DataService.instance.getAllMessages { (returnedMessages) in
+                self.Messages = returnedMessages.reversed()
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -57,6 +59,3 @@ class FeedVC: UIViewController {
             return cell
         }
      }
-
-
-
