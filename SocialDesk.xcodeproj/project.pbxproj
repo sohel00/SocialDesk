@@ -30,6 +30,7 @@
 		7DB652C220076B4C000A9050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB652C120076B4C000A9050 /* Assets.xcassets */; };
 		7DB652C520076B4C000A9050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB652C320076B4C000A9050 /* LaunchScreen.storyboard */; };
 		7DB652D220076DF9000A9050 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB652D120076DF9000A9050 /* GoogleService-Info.plist */; };
+		7DE20D03202732D5004843C4 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE20D02202732D5004843C4 /* UIViewControllerExt.swift */; };
 		FD30A6F28D7297B7DC6FCEF7 /* Pods_SocialDesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C06A8B26CB8FD5812B4A98 /* Pods_SocialDesk.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		7DB652C420076B4C000A9050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB652C620076B4C000A9050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DB652D120076DF9000A9050 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7DE20D02202732D5004843C4 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		A1C06A8B26CB8FD5812B4A98 /* Pods_SocialDesk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialDesk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B136678C800E25FC4C825E67 /* Pods-SocialDesk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialDesk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialDesk/Pods-SocialDesk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				7D811B3620133848001B48A7 /* UIViewExt.swift */,
+				7DE20D02202732D5004843C4 /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				7D811B392013460E001B48A7 /* FeedCell.swift in Sources */,
 				7D38B7EE2025C555002188C2 /* GroupFeedVC.swift in Sources */,
 				7D8F2FC72019B37300C7FB7E /* GroupCell.swift in Sources */,
+				7DE20D03202732D5004843C4 /* UIViewControllerExt.swift in Sources */,
 				7D811B3720133848001B48A7 /* UIViewExt.swift in Sources */,
 				7D4FEB6420172730005F3528 /* UserCell.swift in Sources */,
 				7D75F5E52010AE04007EFF9E /* MeVC.swift in Sources */,
