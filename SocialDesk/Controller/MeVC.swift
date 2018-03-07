@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class MeVC: UIViewController {
 
@@ -29,6 +30,7 @@ class MeVC: UIViewController {
         let logOutAction = UIAlertAction(title: "Logout", style: .destructive) { (buttonTapped) in
             do {
                 try Auth.auth().signOut()
+                GIDSignIn.sharedInstance().signOut()
                 let authVC = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") as? AuthVC
                 self.present(authVC!, animated: true, completion: nil)
             } catch {

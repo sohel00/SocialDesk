@@ -8,22 +8,32 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    
 
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         
         if Auth.auth().currentUser == nil{
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let authVC = storyBoard.instantiateViewController(withIdentifier: "AuthVC")
             window?.makeKeyAndVisible()
             window?.rootViewController?.present(authVC, animated: true, completion: nil)
+        } else {
+            let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let FeedVC = storyBoard.instantiateViewController(withIdentifier: "feedVC")
+            window?.makeKeyAndVisible()
+            window?.rootViewController?.present(FeedVC, animated: true, completion: nil)
         }
         
         return true

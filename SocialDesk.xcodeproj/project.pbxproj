@@ -31,7 +31,7 @@
 		7DB652C520076B4C000A9050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB652C320076B4C000A9050 /* LaunchScreen.storyboard */; };
 		7DB652D220076DF9000A9050 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB652D120076DF9000A9050 /* GoogleService-Info.plist */; };
 		7DE20D03202732D5004843C4 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE20D02202732D5004843C4 /* UIViewControllerExt.swift */; };
-		FD30A6F28D7297B7DC6FCEF7 /* Pods_SocialDesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C06A8B26CB8FD5812B4A98 /* Pods_SocialDesk.framework */; };
+		FD30A6F28D7297B7DC6FCEF7 /* Pods_SocialDesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C06A8B26CB8FD5812B4A98 /* Pods_SocialDesk.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -264,6 +264,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialDesk/Pods-SocialDesk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -271,6 +272,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -305,9 +307,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialDesk/Pods-SocialDesk-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
