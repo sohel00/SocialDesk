@@ -10,6 +10,11 @@ target 'SocialDesk' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'GoogleSignIn'
+    pod 'IQKeyboardManagerSwift'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKShareKit'
+    pod 'FBSDKLoginKit'
+
 
 
 

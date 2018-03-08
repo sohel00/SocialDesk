@@ -77,6 +77,8 @@ class DataService{
         }
     }
     
+    
+    
     func getAllGroupMessages(group: Group, handler: @escaping (_ messagesArray:[Message])->()){
         var groupMessageArray = [Message]()
         REF_GROUPS.child(group.groupKey).child("messages").observeSingleEvent(of: .value) { (groupMessageSnapshot) in

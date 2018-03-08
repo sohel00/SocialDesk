@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class GroupFeedVC: UIViewController {
 
@@ -22,10 +23,16 @@ class GroupFeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        sendBtnView.bindToKeyboard()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(handleTap))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(){
+        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,11 +100,5 @@ extension GroupFeedVC : UITableViewDelegate, UITableViewDataSource {
        
         return cell
     }
-    
-    
-    
-    
-    
-    
 }
 

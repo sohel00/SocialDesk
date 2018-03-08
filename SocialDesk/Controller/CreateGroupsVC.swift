@@ -24,11 +24,18 @@ class CreateGroupsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         tableView.delegate = self
         tableView.dataSource = self
        emailSearchTextField.delegate = self
         emailSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         doneBtn.isHidden = true
+        
+
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @objc func textFieldDidChange(){

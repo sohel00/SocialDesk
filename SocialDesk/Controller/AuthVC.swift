@@ -9,18 +9,18 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 
-class AuthVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+
+class AuthVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLoginButtonDelegate {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +31,13 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     }
 
     @IBAction func loginWithFBPressed(_ sender: Any) {
+        
+        var loginButton: FBSDKLoginButton = FBSDKLoginButton()
+        loginButton.readPermissions = ["email"]
+        loginButton.delegate = self
+        loginButton.sendActions(for: .touchUpInside)
+        
+       
     }
     @IBAction func loginWithGooglePressed(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
@@ -44,8 +51,6 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             return
         }
         
-        
-        
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,accessToken: authentication.accessToken)
         
@@ -54,11 +59,51 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 debugPrint(error)
                 return
             }
-            print(user ?? "")
+            let userdata = ["provider":"Google", "email": Auth.auth().currentUser?.email]
+            DataService.instance.createUser(uid: (Auth.auth().currentUser?.uid)!, userData: userdata)
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "feedVC")
             self.presentVC(vc!)
             
         }
+    }
+    
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print("Something went wrong", error)
+        }
+
+        
+        guard let accessToken = FBSDKAccessToken.current() else {return}
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+        Auth.auth().signIn(with: credentials) { (user, error) in
+            if error != nil {
+                print("@@@@@@@", error ?? "")
+            }
+            
+            let userdata = ["provider":"Facebook", "email": Auth.auth().currentUser?.email]
+            DataService.instance.createUser(uid: (Auth.auth().currentUser?.uid)!, userData: userdata)
+            
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "feedVC")
+            self.presentVC(vc!)
+            print("sucessful", user ?? "")
+        }
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"id,email,name"]).start { (connection, result, error) in
+            if error != nil{
+                print("abcd")
+            }
+            
+            print("sucessfull", result ?? "")
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("user logged out of facebook")
+    }
+    
+    func fbFirebaseAuthentication(){
+        
     }
     
     

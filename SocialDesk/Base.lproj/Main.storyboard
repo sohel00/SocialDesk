@@ -198,7 +198,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt9-cB-tiR">
-                                <rect key="frame" x="0.0" y="757" width="375" height="35"/>
+                                <rect key="frame" x="0.0" y="743" width="375" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gSm-gh-Meo"/>
@@ -222,12 +222,12 @@
                             <constraint firstItem="rME-Tx-gl1" firstAttribute="trailing" secondItem="lt9-cB-tiR" secondAttribute="trailing" id="KAB-GW-bgs"/>
                             <constraint firstItem="kJG-1R-1RA" firstAttribute="centerY" secondItem="Aet-vb-ES8" secondAttribute="centerY" id="Kw3-zr-AOi"/>
                             <constraint firstItem="Aet-vb-ES8" firstAttribute="top" secondItem="VXM-wq-ftd" secondAttribute="bottom" constant="20" id="Ngn-43-cVk"/>
-                            <constraint firstItem="lt9-cB-tiR" firstAttribute="top" secondItem="k3j-fl-SMv" secondAttribute="bottom" constant="30" id="UIm-fF-cHC"/>
-                            <constraint firstAttribute="bottom" secondItem="lt9-cB-tiR" secondAttribute="bottom" constant="20" id="Wk4-YC-tMo"/>
+                            <constraint firstItem="lt9-cB-tiR" firstAttribute="top" secondItem="k3j-fl-SMv" secondAttribute="bottom" constant="16" id="Y5R-md-bNl"/>
                             <constraint firstItem="k3j-fl-SMv" firstAttribute="leading" secondItem="rME-Tx-gl1" secondAttribute="leading" constant="20" id="elx-3U-Fzu"/>
                             <constraint firstItem="VXM-wq-ftd" firstAttribute="trailing" secondItem="rME-Tx-gl1" secondAttribute="trailing" id="nIF-Rx-SNI"/>
                             <constraint firstItem="rME-Tx-gl1" firstAttribute="trailing" secondItem="kJG-1R-1RA" secondAttribute="trailing" constant="20" id="ojz-Pd-XJF"/>
                             <constraint firstItem="Aet-vb-ES8" firstAttribute="leading" secondItem="rME-Tx-gl1" secondAttribute="leading" constant="20" id="taU-lh-6P4"/>
+                            <constraint firstItem="lt9-cB-tiR" firstAttribute="bottom" secondItem="s9s-Oh-I6k" secondAttribute="bottom" constant="-34" id="x1T-iK-tNd"/>
                             <constraint firstItem="k3j-fl-SMv" firstAttribute="top" secondItem="kJG-1R-1RA" secondAttribute="bottom" constant="55.670000000000002" id="ylI-Ss-KfI"/>
                             <constraint firstItem="rME-Tx-gl1" firstAttribute="trailing" secondItem="k3j-fl-SMv" secondAttribute="trailing" constant="20" id="zIf-gn-kD6"/>
                         </constraints>
@@ -844,9 +844,9 @@
                                                 <color key="textColor" red="0.015686274509803921" green="0.6705882352941176" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebO-PH-ylS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebO-PH-ylS" customClass="RoundedShadowButton" customModule="SocialDesk" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="52" width="335" height="58"/>
-                                                <color key="backgroundColor" red="0.2627450980392157" green="0.35686274509803922" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.2627450980392157" green="0.35686274509803922" blue="0.56862745098039214" alpha="0.9237746147260274" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <state key="normal" title="Login With FB">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -855,9 +855,9 @@
                                                     <action selector="loginWithFBPressed:" destination="gtq-EI-wtX" eventType="touchUpInside" id="X8r-UF-dgO"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrT-bY-VGA">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrT-bY-VGA" customClass="RoundedShadowButton" customModule="SocialDesk" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="120.00000000000001" width="335" height="57.666666666666671"/>
-                                                <color key="backgroundColor" red="0.91599220037460327" green="0.26205712556838989" blue="0.20750090479850769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.91764705882352937" green="0.26205712556838989" blue="0.20750090479850769" alpha="0.92246361301369861" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <state key="normal" title="Login With G+">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

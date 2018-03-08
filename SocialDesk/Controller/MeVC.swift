@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKLoginKit
 
 class MeVC: UIViewController {
 
@@ -23,6 +24,12 @@ class MeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.userEmail.text = Auth.auth().currentUser?.email
     }
+    
+    fileprivate func logoutOfFacebook() {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        FBSDKAccessToken.setCurrent(nil)
+    }
 
     
     @IBAction func signOutPressed(_ sender: Any) {
@@ -31,6 +38,7 @@ class MeVC: UIViewController {
             do {
                 try Auth.auth().signOut()
                 GIDSignIn.sharedInstance().signOut()
+                self.logoutOfFacebook()
                 let authVC = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") as? AuthVC
                 self.present(authVC!, animated: true, completion: nil)
             } catch {

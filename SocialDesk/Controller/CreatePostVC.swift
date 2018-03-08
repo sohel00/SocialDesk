@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class CreatePostVC: UIViewController {
 
     @IBOutlet weak var profileImg: UIImageView!
@@ -17,9 +18,15 @@ class CreatePostVC: UIViewController {
     @IBOutlet weak var sendBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         textView.delegate = self
-        sendBtn.bindToKeyboard()
+
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(handleTap))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(){
+        self.view.endEditing(true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
