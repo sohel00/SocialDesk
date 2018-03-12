@@ -10,20 +10,125 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
+import FirebaseStorage
 
-class MeVC: UIViewController {
+class MeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    let DB = Database.database().reference()
+    var imagePicker = UIImagePickerController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        DataService.instance.getProfleImg(forUID: (Auth.auth().currentUser?.uid)!) { (returnedImage) in
+            self.profileImg.image = returnedImage
+            }    
+        
+        profileImg.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapProfileImage(_:)))
+        profileImg.addGestureRecognizer(tap)
     }
+    
+    
+    @objc func didTapProfileImage(_ sender: UITapGestureRecognizer) {
+        
+        let myActionSheet = UIAlertController(title: "Profile Picture", message: "", preferredStyle: .actionSheet)
+        
+        let viewPicture = UIAlertAction(title: "View Picture", style: .default) { (action) in
+            
+            let imageView = sender.view as! UIImageView
+            let newImageView = UIImageView(image: imageView.image)
+            newImageView.frame = self.view.frame
+            newImageView.backgroundColor = UIColor.black
+            newImageView.contentMode = .scaleAspectFit
+            newImageView.isUserInteractionEnabled = true
+        
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissFullScreenImage(sender:)))
+            
+            newImageView.addGestureRecognizer(tap)
+            self.view.addSubview(newImageView)
+            
+        }
+        
+        let photoGallery = UIAlertAction(title: "Photos", style: .default) { (action) in
+            
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
+                
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum
+                self.imagePicker.allowsEditing = true
+                
+                self.present(self.imagePicker, animated: true, completion: nil)
+                
+            }
+            
+        }
+        let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
+            
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+                self.imagePicker.allowsEditing = true
+                
+                self.present(self.imagePicker, animated: true, completion: nil)
+                
+            }
+            
+        }
+        
+        
+        
+        myActionSheet.addAction(viewPicture)
+        myActionSheet.addAction(photoGallery)
+        myActionSheet.addAction(camera)
+        myActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(myActionSheet, animated: true, completion: nil)
+    }
+    
+    @objc func dismissFullScreenImage(sender: UITapGestureRecognizer){
+        
+        sender.view?.removeFromSuperview()
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.profileImg.image = image
+        
+        
+        let uploadData = UIImageJPEGRepresentation(image!, 0.8)
+            let imgUid = Auth.auth().currentUser?.uid
+        DataService.instance.REF_STORAGE.child(imgUid!).putData(uploadData!, metadata:nil , completion: { (metaData, error) in
+                if error != nil {
+                    print("khfk")
+                } else {
+                    print("sucessfully uploaded image")
+                    let downloadUrl = metaData?.downloadURL()?.absoluteString
+                    if let url = downloadUrl {
+                        let profileImage = ["ProfileImage":url]
+                        DataService.instance.uploadProfileImage(forUid: (Auth.auth().currentUser?.uid)!, userData: profileImage, handler: { (status) in
+                            if status {
+                                print("sucessfull")
+                            } else {
+                                print("unsucessfull")
+                            }
+                        })
+                    }
+                }
+            })
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.userEmail.text = Auth.auth().currentUser?.email
-    }
+}
     
     fileprivate func logoutOfFacebook() {
         let loginManager = FBSDKLoginManager()
@@ -41,11 +146,17 @@ class MeVC: UIViewController {
                 self.logoutOfFacebook()
                 let authVC = self.storyboard?.instantiateViewController(withIdentifier: "AuthVC") as? AuthVC
                 self.present(authVC!, animated: true, completion: nil)
+                self.profileImg.image = UIImage(named: "defaultProfileImage")
             } catch {
                 print(error)
             }
         }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (alertAction: UIAlertAction!) in
+            logOutPopUp.dismiss(animated: true, completion: nil)
+        })
         logOutPopUp.addAction(logOutAction)
+        logOutPopUp.addAction(cancel)
         present(logOutPopUp, animated: true, completion: nil)
     }
     

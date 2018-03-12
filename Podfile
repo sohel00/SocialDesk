@@ -14,6 +14,7 @@ target 'SocialDesk' do
     pod 'FBSDKCoreKit'
     pod 'FBSDKShareKit'
     pod 'FBSDKLoginKit'
+    pod 'Firebase/Storage'
 
 
 

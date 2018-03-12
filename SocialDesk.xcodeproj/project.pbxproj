@@ -31,6 +31,7 @@
 		7DB652C220076B4C000A9050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB652C120076B4C000A9050 /* Assets.xcassets */; };
 		7DB652C520076B4C000A9050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB652C320076B4C000A9050 /* LaunchScreen.storyboard */; };
 		7DB652D220076DF9000A9050 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB652D120076DF9000A9050 /* GoogleService-Info.plist */; };
+		7DBAD47720554B0A0001E089 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBAD47620554B0A0001E089 /* CircleImage.swift */; };
 		7DE20D03202732D5004843C4 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE20D02202732D5004843C4 /* UIViewControllerExt.swift */; };
 		FD30A6F28D7297B7DC6FCEF7 /* Pods_SocialDesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C06A8B26CB8FD5812B4A98 /* Pods_SocialDesk.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		7DB652C420076B4C000A9050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB652C620076B4C000A9050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DB652D120076DF9000A9050 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7DBAD47620554B0A0001E089 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		7DE20D02202732D5004843C4 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		A1C06A8B26CB8FD5812B4A98 /* Pods_SocialDesk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialDesk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B136678C800E25FC4C825E67 /* Pods-SocialDesk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialDesk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialDesk/Pods-SocialDesk.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				7D4FEB6320172730005F3528 /* UserCell.swift */,
 				7D8F2FC62019B37300C7FB7E /* GroupCell.swift */,
 				7D38B7EB2025C538002188C2 /* GroupFeedCell.swift */,
+				7DBAD47620554B0A0001E089 /* CircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				7D8F2FC92019CB6300C7FB7E /* Groups.swift in Sources */,
 				7D79C5372015C12800EDD7B8 /* Message.swift in Sources */,
 				7D588B3B200F29B70014EB5C /* InsetTextField.swift in Sources */,
+				7DBAD47720554B0A0001E089 /* CircleImage.swift in Sources */,
 				7D76B76920088BE100A76292 /* DataService.swift in Sources */,
 				7D3F3246200F314600785BA6 /* AuthService.swift in Sources */,
 			);

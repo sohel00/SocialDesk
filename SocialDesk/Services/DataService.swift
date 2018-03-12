@@ -8,8 +8,11 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
+
 
 let DB_BASE = Database.database().reference()
+let DB_STORAGE = Storage.storage().reference()
 
 class DataService{
     static let instance = DataService()
@@ -18,6 +21,8 @@ class DataService{
     private var _REF_USERS = DB_BASE.child("users")
     private var _REF_GROUPS = DB_BASE.child("groups")
     private var _REF_FEED = DB_BASE.child("feed")
+    private var _REF_PROFILE_IMAGE = DB_STORAGE.child("ProfileImages")
+    private var _REF_USER_PROFILE_IMAGE = DB_BASE.child("Profile_Image")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -33,6 +38,15 @@ class DataService{
     
     var REF_FEED: DatabaseReference{
         return _REF_FEED
+    }
+    
+    var REF_STORAGE: StorageReference {
+        return _REF_PROFILE_IMAGE
+    }
+    
+    var REF_PROFILE_IMG: DatabaseReference {
+        return _REF_USER_PROFILE_IMAGE
+        
     }
     
     func createUser(uid:String, userData:[String:Any]){
@@ -142,7 +156,24 @@ class DataService{
         handler(true)
     }
     
+    func uploadProfileImage(forUid uid:String , userData:[String:String] , handler: @escaping (_ status:Bool)->()){
+        REF_USERS.child(uid).updateChildValues(userData)
+        handler(true)
+    }
     
+    func getProfleImg(forUID uid:String, handler: @escaping (_ photo:UIImage?)->()){
+        
+        let imageRef = Storage.storage().reference().child("ProfileImages/\(uid)")
+        imageRef.getData(maxSize: 25 * 1024 * 1024, completion: { (data, error) in
+            if error == nil {
+                print("@@@@@@@@@@@@@@@@@@@@@@")
+                let image = UIImage(data: data!)
+                handler(image!)
+            } else {
+                handler(nil)
+            }
+        })
+    }
     
     func getAllGroups(handler:@escaping (_ groups:[Group])->()){
         var groupsArray = [Group]()

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import FirebaseStorage
+import Firebase
 class FeedVC: UIViewController {
 
     var Messages = [Message]()
@@ -19,6 +20,8 @@ class FeedVC: UIViewController {
         tableView.dataSource = self
         
     }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         DataService.instance.REF_FEED.observe(.value) { (snapShot) in
@@ -49,13 +52,21 @@ class FeedVC: UIViewController {
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? FeedCell else {return UITableViewCell()}
-            let image = UIImage(named: "defaultProfileImage")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as? FeedCell else {return UITableViewCell()}
+            
             let message = Messages[indexPath.row]
             DataService.instance.getUserName(forUID: message.senderID) { (returnedUsername) in
-                cell.configureCell(image: image!, email: returnedUsername , message: message.content)
+                DataService.instance.getProfleImg(forUID: message.senderID, handler: { (returnedImage) in
+                    if returnedImage != nil {
+                        cell.configureCell(image: returnedImage!, email: returnedUsername, message: message.content)
+                    } else {
+                        cell.configureCell(image: UIImage(named: "defaultProfileImage")! , email: returnedUsername, message: message.content)
+                    }
+                })
             }
+
             
             return cell
-        }
-     }
+}
+
+}
