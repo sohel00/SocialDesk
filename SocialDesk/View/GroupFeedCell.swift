@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GroupFeedCell: UITableViewCell {
 
@@ -14,8 +15,12 @@ class GroupFeedCell: UITableViewCell {
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var contentLbl: UILabel!
     
-    func configureCell(image: UIImage, username: String, content: String) {
-        self.profileImg.image = image
+    func configureCell(image: URL?, username: String, content: String) {
+        if image != nil {
+            self.profileImg.kf.setImage(with: image)
+        } else {
+            self.profileImg.image = UIImage(named: "defaultProfileImage")
+        }
         self.userNameLbl.text = username
         self.contentLbl.text = content
     }

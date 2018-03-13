@@ -11,12 +11,18 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 import FirebaseStorage
+import Kingfisher
 
 class MeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var tableView: UITableView!
+   
+    var groups = [Group]()
+    
+    
+    
     
     let DB = Database.database().reference()
     var imagePicker = UIImagePickerController()
@@ -24,15 +30,35 @@ class MeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataService.instance.getProfleImg(forUID: (Auth.auth().currentUser?.uid)!) { (returnedImage) in
-            self.profileImg.image = returnedImage
-            }    
+        LoadProfileImage()
+        LoadGroups()
+        
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
         
         profileImg.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapProfileImage(_:)))
         profileImg.addGestureRecognizer(tap)
     }
     
+    func LoadProfileImage(){
+        DataService.instance.getProfleImg(forUID: (Auth.auth().currentUser?.uid)!) { (returnedUrl) in
+            let image = UIImage(named: "defaultProfileImage")
+            self.profileImg.kf.setImage(with: returnedUrl, placeholder: image)
+        }
+    }
+    
+    func LoadGroups(){
+        DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
+            DataService.instance.getAllGroups { (groupsData) in
+                self.groups = groupsData
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     @objc func didTapProfileImage(_ sender: UITapGestureRecognizer) {
         
@@ -161,3 +187,25 @@ class MeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
     }
     
 }
+
+extension MeVC: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return groups.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "meCell", for: indexPath) as? MeCell else { return UITableViewCell() }
+        let group = groups[indexPath.row]
+        cell.configureCell(labelData: group.groupTitle)
+        return cell
+    }
+    
+}
+
+
+
+

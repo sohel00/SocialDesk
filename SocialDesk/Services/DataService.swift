@@ -161,18 +161,26 @@ class DataService{
         handler(true)
     }
     
-    func getProfleImg(forUID uid:String, handler: @escaping (_ photo:UIImage?)->()){
+    func getProfleImg(forUID uid:String, handler: @escaping (_ photo:URL?)->()){
         
         let imageRef = Storage.storage().reference().child("ProfileImages/\(uid)")
-        imageRef.getData(maxSize: 25 * 1024 * 1024, completion: { (data, error) in
-            if error == nil {
-                print("@@@@@@@@@@@@@@@@@@@@@@")
-                let image = UIImage(data: data!)
-                handler(image!)
-            } else {
+        imageRef.downloadURL { (url, error) in
+            if error == nil{
+                print("@@@@@@@@@@")
+                handler(url)
+            } else{
                 handler(nil)
             }
-        })
+        }
+//        imageRef.getData(maxSize: 25 * 1024 * 1024, completion: { (data, error) in
+//            if error == nil {
+//                print("@@@@@@@@@@@@@@@@@@@@@@")
+//                let image = UIImage(data: data!)
+//                handler(image!)
+//            } else {
+//                handler(nil)
+//            }
+//        })
     }
     
     func getAllGroups(handler:@escaping (_ groups:[Group])->()){

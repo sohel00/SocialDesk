@@ -15,6 +15,7 @@ target 'SocialDesk' do
     pod 'FBSDKShareKit'
     pod 'FBSDKLoginKit'
     pod 'Firebase/Storage'
+    pod 'Kingfisher', '~> 4.0'
 
 
 

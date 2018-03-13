@@ -95,7 +95,9 @@ extension GroupFeedVC : UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupFeedCell", for: indexPath) as? GroupFeedCell else {return UITableViewCell()}
         let message = groupMessages[indexPath.row]
         DataService.instance.getUserName(forUID: message.senderID) { (email) in
-             cell.configureCell(image: UIImage(named: "defaultProfileImage")!, username: email, content: message.content)
+            DataService.instance.getProfleImg(forUID: message.senderID, handler: { (url) in
+                cell.configureCell(image: url, username: email, content: message.content)
+            })
         }
        
         return cell

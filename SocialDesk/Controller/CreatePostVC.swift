@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Kingfisher
 
 
 class CreatePostVC: UIViewController {
@@ -18,11 +19,21 @@ class CreatePostVC: UIViewController {
     @IBOutlet weak var sendBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        LoadProfileImage()
+        
         textView.delegate = self
 
         let tap = UITapGestureRecognizer()
         tap.addTarget(self, action: #selector(handleTap))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    func LoadProfileImage(){
+        DataService.instance.getProfleImg(forUID: (Auth.auth().currentUser?.uid)!) { (returnedUrl) in
+            let image = UIImage(named: "defaultProfileImage")
+            self.profileImg.kf.setImage(with: returnedUrl, placeholder: image)
+        }
     }
     
     @objc func handleTap(){

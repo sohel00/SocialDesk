@@ -56,12 +56,10 @@ class FeedVC: UIViewController {
             
             let message = Messages[indexPath.row]
             DataService.instance.getUserName(forUID: message.senderID) { (returnedUsername) in
-                DataService.instance.getProfleImg(forUID: message.senderID, handler: { (returnedImage) in
-                    if returnedImage != nil {
-                        cell.configureCell(image: returnedImage!, email: returnedUsername, message: message.content)
-                    } else {
-                        cell.configureCell(image: UIImage(named: "defaultProfileImage")! , email: returnedUsername, message: message.content)
-                    }
+                DataService.instance.getProfleImg(forUID: message.senderID, handler: { (returnedURL) in
+                    if returnedURL != nil {
+                        cell.configureCell(image: returnedURL, email: returnedUsername, message: message.content)
+                    }                                        
                 })
             }
 
