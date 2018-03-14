@@ -15,13 +15,12 @@ import Kingfisher
 
 class MeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    private let isFrontCameraAvailable = UIImagePickerController.isCameraDeviceAvailable(.front)
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var tableView: UITableView!
    
     var groups = [Group]()
-    
-    
     
     
     let DB = Database.database().reference()
@@ -32,7 +31,7 @@ class MeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
         super.viewDidLoad()
         LoadProfileImage()
         LoadGroups()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.LoadProfileImage), name: USER_DATA_LOADED, object: nil)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -44,7 +43,7 @@ class MeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
         profileImg.addGestureRecognizer(tap)
     }
     
-    func LoadProfileImage(){
+    @objc func LoadProfileImage(){
         DataService.instance.getProfleImg(forUID: (Auth.auth().currentUser?.uid)!) { (returnedUrl) in
             let image = UIImage(named: "defaultProfileImage")
             self.profileImg.kf.setImage(with: returnedUrl, placeholder: image)
@@ -97,17 +96,16 @@ class MeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationContr
             
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
             
-                self.imagePicker.delegate = self
-                self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-                self.imagePicker.allowsEditing = true
                 
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.allowsEditing = true
+                self.imagePicker.showsCameraControls = true
+                self.imagePicker.delegate = self
                 self.present(self.imagePicker, animated: true, completion: nil)
                 
             }
             
         }
-        
-        
         
         myActionSheet.addAction(viewPicture)
         myActionSheet.addAction(photoGallery)

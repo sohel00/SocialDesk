@@ -32,7 +32,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLog
 
     @IBAction func loginWithFBPressed(_ sender: Any) {
         
-        var loginButton: FBSDKLoginButton = FBSDKLoginButton()
+        let loginButton: FBSDKLoginButton = FBSDKLoginButton()
         loginButton.readPermissions = ["email"]
         loginButton.delegate = self
         loginButton.sendActions(for: .touchUpInside)
@@ -100,10 +100,6 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, FBSDKLog
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("user logged out of facebook")
-    }
-    
-    func fbFirebaseAuthentication(){
-        
     }
     
     

@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseStorage
 
-
+let USER_DATA_LOADED = Notification.Name("USERDATALOADED")
 let DB_BASE = Database.database().reference()
 let DB_STORAGE = Storage.storage().reference()
 
@@ -46,7 +46,6 @@ class DataService{
     
     var REF_PROFILE_IMG: DatabaseReference {
         return _REF_USER_PROFILE_IMAGE
-        
     }
     
     func createUser(uid:String, userData:[String:Any]){
@@ -87,11 +86,8 @@ class DataService{
                 
             }
             message(messageArray)
-            
         }
     }
-    
-    
     
     func getAllGroupMessages(group: Group, handler: @escaping (_ messagesArray:[Message])->()){
         var groupMessageArray = [Message]()
@@ -133,7 +129,6 @@ class DataService{
             }
             handler(uidArray)
         }
-    
     }
     
     func getEmailsFor(group:Group, handler:@escaping (_ emailArray:[String])->()){
@@ -172,15 +167,6 @@ class DataService{
                 handler(nil)
             }
         }
-//        imageRef.getData(maxSize: 25 * 1024 * 1024, completion: { (data, error) in
-//            if error == nil {
-//                print("@@@@@@@@@@@@@@@@@@@@@@")
-//                let image = UIImage(data: data!)
-//                handler(image!)
-//            } else {
-//                handler(nil)
-//            }
-//        })
     }
     
     func getAllGroups(handler:@escaping (_ groups:[Group])->()){

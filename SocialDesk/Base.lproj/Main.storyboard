@@ -325,7 +325,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GroupData" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1B-YN-6lu">
-                                                    <rect key="frame" x="31" y="12.000000000000002" width="289" height="25.666666666666671"/>
+                                                    <rect key="frame" x="15" y="12.000000000000002" width="305" height="25.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="22"/>
                                                     <color key="textColor" red="0.015686274509803921" green="0.6705882352941176" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -334,7 +334,7 @@
                                             <constraints>
                                                 <constraint firstItem="J1B-YN-6lu" firstAttribute="centerY" secondItem="gvL-4I-Obj" secondAttribute="centerY" id="M5k-fo-bni"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="J1B-YN-6lu" secondAttribute="trailing" constant="40" id="cK7-2C-Bpb"/>
-                                                <constraint firstItem="J1B-YN-6lu" firstAttribute="leading" secondItem="gvL-4I-Obj" secondAttribute="leadingMargin" constant="16" id="d7M-JP-toF"/>
+                                                <constraint firstItem="J1B-YN-6lu" firstAttribute="leading" secondItem="gvL-4I-Obj" secondAttribute="leadingMargin" id="d7M-JP-toF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -992,6 +992,10 @@
                                     <action selector="signInPressed:" destination="Vno-Oa-ITj" eventType="touchUpInside" id="QUJ-uZ-fFb"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GUd-vn-mvW">
+                                <rect key="frame" x="169" y="531" width="37" height="37"/>
+                                <color key="color" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.25490196079999999" green="0.27058823529999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -1000,8 +1004,10 @@
                             <constraint firstItem="vPH-73-xFm" firstAttribute="centerY" secondItem="oTz-pQ-5X4" secondAttribute="centerY" constant="-30" id="98C-tE-Ve9"/>
                             <constraint firstItem="vPH-73-xFm" firstAttribute="leading" secondItem="inc-E1-kxB" secondAttribute="leading" constant="35" id="BPD-hX-A5q"/>
                             <constraint firstItem="SDO-q2-udB" firstAttribute="leading" secondItem="inc-E1-kxB" secondAttribute="leading" constant="18" id="WDF-Nk-NtQ"/>
+                            <constraint firstItem="GUd-vn-mvW" firstAttribute="top" secondItem="IpF-YK-JH7" secondAttribute="bottom" constant="28" id="XNB-e4-Yyx"/>
                             <constraint firstItem="IpF-YK-JH7" firstAttribute="centerY" secondItem="oTz-pQ-5X4" secondAttribute="centerY" constant="80" id="Y7h-rs-oLW"/>
                             <constraint firstItem="inc-E1-kxB" firstAttribute="trailing" secondItem="vPH-73-xFm" secondAttribute="trailing" constant="35" id="iVq-K8-0EA"/>
+                            <constraint firstItem="GUd-vn-mvW" firstAttribute="centerX" secondItem="oTz-pQ-5X4" secondAttribute="centerX" id="nvT-mc-5bU"/>
                             <constraint firstItem="SDO-q2-udB" firstAttribute="top" secondItem="oTz-pQ-5X4" secondAttribute="topMargin" constant="15" id="vET-Bi-Lwp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="inc-E1-kxB"/>
@@ -1009,6 +1015,7 @@
                     <connections>
                         <outlet property="emailField" destination="1kt-DL-zna" id="NTe-rk-gdh"/>
                         <outlet property="passwordField" destination="eCa-Ys-2si" id="16n-Dt-NNk"/>
+                        <outlet property="spinner" destination="GUd-vn-mvW" id="VHM-DE-Aub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dx4-J3-SX4" userLabel="First Responder" sceneMemberID="firstResponder"/>

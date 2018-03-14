@@ -84,7 +84,7 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else {return UITableViewCell()}
         let profileImage = UIImage(named: "defaultProfileImage")
         if chosenUserArray.contains(emailArray[indexPath.row]){
-             cell.configureCell(forImage: profileImage! , withEmail: emailArray[indexPath.row], isSelected: true)
+             cell.configureCell(forImage: profileImage!, withEmail: emailArray[indexPath.row], isSelected: true)
         } else {
             cell.configureCell(forImage: profileImage! , withEmail: emailArray[indexPath.row], isSelected: false)
         }

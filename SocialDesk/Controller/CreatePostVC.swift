@@ -24,12 +24,13 @@ class CreatePostVC: UIViewController {
         
         textView.delegate = self
 
+        
         let tap = UITapGestureRecognizer()
         tap.addTarget(self, action: #selector(handleTap))
         self.view.addGestureRecognizer(tap)
     }
     
-    func LoadProfileImage(){
+     func LoadProfileImage(){
         DataService.instance.getProfleImg(forUID: (Auth.auth().currentUser?.uid)!) { (returnedUrl) in
             let image = UIImage(named: "defaultProfileImage")
             self.profileImg.kf.setImage(with: returnedUrl, placeholder: image)
@@ -70,9 +71,3 @@ extension CreatePostVC : UITextViewDelegate{
         textView.text = ""
     }
 }
-
-
-
-
-
-
