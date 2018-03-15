@@ -1,6 +1,6 @@
 # SocialDesk
 <br>
-SocialDesk is a chat app where you can post feeds and create groups using emails for private chat and it has a feature of setting profile image.
+SocialDesk is a chat app where you can post feeds, create groups using emails for private chat and it has a feature of setting profile image.
 <br>
 
 ### Backend Used:
