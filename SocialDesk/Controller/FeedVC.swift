@@ -21,7 +21,6 @@ class FeedVC: UIViewController {
         
     }
     
-
     
     override func viewWillAppear(_ animated: Bool) {
         DataService.instance.REF_FEED.observe(.value) { (snapShot) in
